@@ -3,10 +3,16 @@ extends CharacterBody2D
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		print("jumped")
+		velocity.y = -500
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
+	
+	if velocity.y < -1000:
+		velocity.y = -1000
+	
+	print(velocity.y)
 	move_and_slide()
