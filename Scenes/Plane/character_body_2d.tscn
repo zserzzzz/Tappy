@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1s576lntimtn"]
+[gd_scene load_steps=11 format=3 uid="uid://c1s576lntimtn"]
 
 [ext_resource type="Script" uid="uid://dsjl8mg8x18a8" path="res://Scenes/Plane/character_body_2d.gd" id="1_1cu6o"]
 [ext_resource type="Texture2D" uid="uid://bppdyyg04rkuq" path="res://assets/plane/planes_sheet.png" id="1_4bloj"]
@@ -34,6 +34,43 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hp0ib"]
 
+[sub_resource type="Animation" id="Animation_1cu6o"]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.3663),
+"transitions": PackedFloat32Array(1, 1, 6.72718),
+"update": 0,
+"values": [0.0, -0.261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hp0ib"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpvuh"]
+_data = {
+&"RESET": SubResource("Animation_hp0ib"),
+&"jump": SubResource("Animation_1cu6o")
+}
+
 [node name="Plane" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_1cu6o")
@@ -41,9 +78,14 @@ script = ExtResource("1_1cu6o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yw6ve")
 autoplay = "default"
-frame_progress = 0.623848
+frame_progress = 0.971123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -1)
 scale = Vector2(5.15363, 3.88399)
 shape = SubResource("CircleShape2D_hp0ib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bpvuh")
+}
