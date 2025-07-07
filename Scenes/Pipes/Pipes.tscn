@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://m0yjg1ju617n"]
+
+[ext_resource type="PackedScene" uid="uid://bs71byb68dec7" path="res://Scenes/pipe/pipe.tscn" id="1_nqmk8"]
+[ext_resource type="PackedScene" uid="uid://bfft6rds8p4pw" path="res://Scenes/laser/laser.tscn" id="2_u8oov"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Pipe" parent="." instance=ExtResource("1_nqmk8")]
+position = Vector2(0, 96)
+
+[node name="Laser" parent="." instance=ExtResource("2_u8oov")]
