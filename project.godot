@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="tappy"
-run/main_scene="uid://5yqo5qdatolj"
+run/main_scene="uid://b6vk6wgp8r6kp"
 config/features=PackedStringArray("4.4", "Mobile")
 run/max_fps=60
 config/icon="res://icon.svg"

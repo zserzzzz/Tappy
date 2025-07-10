@@ -4,6 +4,8 @@ class_name Tappy
 
 signal on_plane_died
 
+
+var j_vel = -400
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -12,10 +14,7 @@ var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		print("jumped")
-		velocity.y = -500
-		if animation_player.is_playing():
-			animation_player.stop()
-		animation_player.play("jump")
+		jump()
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
@@ -34,3 +33,14 @@ func die() -> void:
 	animated_sprite_2d.pause()
 	set_physics_process(false)
 	on_plane_died.emit()
+
+
+func jump():
+	velocity.y = j_vel
+	if animation_player.is_playing():
+		animation_player.stop()
+	animation_player.play("jump")
+
+
+func _on_touch_screen_button_pressed() -> void:
+	jump()
