@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+class_name Tappy
+
+signal on_plane_died
+
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -19,7 +23,6 @@ func _physics_process(delta: float) -> void:
 	if velocity.y < -1000:
 		velocity.y = -1000
 	
-	print(is_on_floor())
 	move_and_slide()
 	
 	
@@ -30,4 +33,4 @@ func _physics_process(delta: float) -> void:
 func die() -> void:
 	animated_sprite_2d.pause()
 	set_physics_process(false)
-	
+	on_plane_died.emit()
