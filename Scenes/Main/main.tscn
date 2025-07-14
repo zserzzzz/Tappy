@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6vk6wgp8r6kp"]
+[gd_scene load_steps=5 format=3 uid="uid://b6vk6wgp8r6kp"]
 
 [ext_resource type="Texture2D" uid="uid://2w864wfvfi3n" path="res://assets/background/sky.png" id="1_1r6ip"]
+[ext_resource type="LabelSettings" uid="uid://18bp0lskfee4" path="res://assets/fonts/recourses/main_title.tres" id="2_qw60k"]
+[ext_resource type="FontFile" uid="uid://c1tubkg6pim80" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_5yls4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p6jpk"]
+font = ExtResource("3_5yls4")
+font_size = 50
+font_color = Color(0.309804, 0.2, 1, 1)
+shadow_size = 5
+shadow_color = Color(0.183984, 4.197e-05, 0.676254, 1)
+shadow_offset = Vector2(3, 4)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -19,3 +29,35 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1r6ip")
 expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "TAPPY
+PLANE"
+label_settings = ExtResource("2_qw60k")
+
+[node name="Label2" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Highscore"
+label_settings = SubResource("LabelSettings_p6jpk")
+
+[node name="Label3" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "0"
+label_settings = SubResource("LabelSettings_p6jpk")
+horizontal_alignment = 2
+vertical_alignment = 3
