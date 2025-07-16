@@ -44,6 +44,5 @@ shape = SubResource("RectangleShape2D_i1e5p")
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[connection signal="on_plane_died" from="Plane" to="." method="_on_plane_died"]
 [connection signal="timeout" from="spawntimer" to="." method="_on_spawntimer_timeout"]
 [connection signal="pressed" from="TouchScreenButton" to="Plane" method="_on_touch_screen_button_pressed"]
