@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://5yqo5qdatolj"]
+[gd_scene load_steps=7 format=3 uid="uid://5yqo5qdatolj"]
 
 [ext_resource type="Script" uid="uid://ckas5ws2fy3ko" path="res://Scenes/Game/game.gd" id="1_i1e5p"]
 [ext_resource type="Texture2D" uid="uid://dcuda5xfl52lv" path="res://assets/background/rocks_2.png" id="1_mv0hc"]
 [ext_resource type="PackedScene" uid="uid://c1s576lntimtn" path="res://Scenes/Plane/plane.tscn" id="2_qxfds"]
 [ext_resource type="PackedScene" uid="uid://c41kkk08ctyxv" path="res://Scenes/barrier/barrier.tscn" id="3_qikps"]
+[ext_resource type="PackedScene" uid="uid://b76gxh1nwiq7y" path="res://Scenes/gameui/game_ui.tscn" id="5_ciybh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1e5p"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_i1e5p")
 
 [node name="Rocks2" type="Sprite2D" parent="."]
@@ -35,6 +37,12 @@ position = Vector2(737, 582)
 position = Vector2(231, 508)
 scale = Vector2(32.7825, 56.7955)
 shape = SubResource("RectangleShape2D_i1e5p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" instance=ExtResource("5_ciybh")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [connection signal="on_plane_died" from="Plane" to="." method="_on_plane_died"]
 [connection signal="timeout" from="spawntimer" to="." method="_on_spawntimer_timeout"]

@@ -5,6 +5,7 @@ var pipes = preload("res://Scenes/Pipes/Pipes.tscn")
 @onready var lower: Marker2D = $lower
 @onready var pipes_holder: Node = $PipesHolder
 
+
 func _ready() -> void:
 	spawn_pipe()
 
