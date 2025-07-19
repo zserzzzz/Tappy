@@ -1,9 +1,18 @@
 extends Control
 
 
+@onready var highscore_number: Label = $MarginContainer/HighscoreNumber
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump", true) == true:
-		get_tree().change_scene_to_file("res://Scenes/Game/game.tscn")
+		GameManager.load_game_scene()
 
-func ready():
+func _ready():
 	get_tree().paused = false
+	highscore_number.text = "%04d" % ScoreManager.high_score
+
+
+func _enter_tree() -> void:
+#	highscore_number.text = "%04d" % ScoreManager.high_score
+	pass

@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Signalbus="*res://Globals/Signalbus.gd"
+GameManager="*res://Globals/GameManager.gd"
+ScoreManager="*res://Globals/ScoreManager.gd"
 
 [display]
 

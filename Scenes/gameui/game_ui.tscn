@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b76gxh1nwiq7y"]
+[gd_scene load_steps=7 format=3 uid="uid://b76gxh1nwiq7y"]
 
-[ext_resource type="Script" uid="uid://wmsqhtcneoh4" path="res://game_ui.gd" id="1_ekmer"]
+[ext_resource type="Script" uid="uid://wmsqhtcneoh4" path="res://Scenes/gameui/game_ui.gd" id="1_ekmer"]
 [ext_resource type="FontFile" uid="uid://c1tubkg6pim80" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="2_j01kt"]
+[ext_resource type="AudioStream" uid="uid://ct6yqcuxke8h5" path="res://assets/audio/game_over.wav" id="3_j01kt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_44pwp"]
 font = ExtResource("2_j01kt")
@@ -52,8 +53,10 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "0"
+text = "0000
+"
 label_settings = SubResource("LabelSettings_44pwp")
+horizontal_alignment = 2
 
 [node name="Gameover" type="Label" parent="MarginContainer"]
 visible = false
@@ -68,3 +71,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Press Space!"
 label_settings = SubResource("LabelSettings_2vgsg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j01kt")

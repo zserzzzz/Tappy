@@ -7,7 +7,7 @@ var pipes = preload("res://Scenes/Pipes/Pipes.tscn")
 
 
 func _ready() -> void:
-	spawn_pipe()
+	spawn_pipe() 
 
 func _on_spawntimer_timeout() -> void:
 	spawn_pipe()
